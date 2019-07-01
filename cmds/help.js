@@ -1,6 +1,7 @@
 exports.run = async (client, message, args) => {
     var util = require("../fivem");
     message.delete();
+	if (!message.member.hasPermission("ADMINISTRATOR")) return util.embed(`<@${message.author.id}>, Bunu Yapmaya Yetkin Yok.`);
     let embed = new Discord.RichEmbed()
     .setAuthor(state, icon)
     .setColor(color)

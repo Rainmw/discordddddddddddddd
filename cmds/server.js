@@ -1,6 +1,7 @@
 exports.run = async (client, message, args) => {
   var util = require("../fivem");
     message.delete();
+	if (!message.member.hasPermission("ADMINISTRATOR")) return util.embed(`<@${message.author.id}>, Bunu Yapmaya Yetkin Yok.`);
     if (servers[message.guild.id].guild === message.guild.id) { 
     try {
     var arg = `${servers[message.guild.id].ip}`    
@@ -43,16 +44,14 @@ exports.run = async (client, message, args) => {
         .setAuthor(state, icon)
         .setDescription(`Server Information\n\n${news}`)
      
-        .addField("Total Players", `${e}/${start2.vars.sv_maxClients}`, true)
-        .addField("Script Hook", `${start2.vars.sv_scriptHookAllowed}`, true)
+        .addField("Online Oyuncu", `${e}/${start2.vars.sv_maxClients}`, true)
         .setThumbnail(icon)
-        .addField("Server Version", `${start2.version}`, true)
+        .addField("Sunucu Version", `${start2.version}`, true)
         .addField("Tags", `${tags}`)
 
-        .addField("Server", `${start2.server}`)
+        .addField("Sunucu", `${start2.server}`)
      
         .addField("OneSync", `${start2.vars.onesync_enabled}`)
-        .addField("Resources", "```json\n"+resourc+"```")
         
         //.setFooter(`Follow me instagram.com/that.ziv :)`, icon)
         .setFooter(`Server IP: ${servers[message.guild.id].ip}`, icon)

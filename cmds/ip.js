@@ -1,7 +1,6 @@
 exports.run = async (client, message, args) => {
   var util = require("../fivem");
     message.delete();
-	if (!message.member.hasPermission("ADMINISTRATOR")) return util.embed(`<@${message.author.id}>, Bunu Yapmaya Yetkin Yok.`);
     if (servers[message.guild.id].guild === message.guild.id) { 
         try {
         var arg = `${servers[message.guild.id].ip}`    
@@ -9,9 +8,9 @@ exports.run = async (client, message, args) => {
         req(api2, function (error, response, main) {
          
           if (error) {
-            return util.bad("That server is offline");
+            return util.bad("Sunucu Offline");
           } else {
-            util.aktif(`İyi Oyunlar Dileriz.\nServer IP: ${servers[message.guild.id].ip}\n\n@everyone`)
+            util.ipal(`Server IP: ${servers[message.guild.id].ip}`)
           }
           log(`Used Command [Status] in ${message.guild.name}`)
     });

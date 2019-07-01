@@ -90,6 +90,17 @@ module.exports.good = (args) => {
     return;
 
 }
+module.exports.ipal = (args) => {
+
+    let embed = new Discord.RichEmbed()
+    .setAuthor(state, icon)
+    .addField("SantosRP", args)
+    .setColor('#1daf4c')
+    .setThumbnail(icon)
+    message.channel.send({ embed: embed })
+    return;
+
+}
 module.exports.aktif = (args) => {
 
     let embed = new Discord.RichEmbed()

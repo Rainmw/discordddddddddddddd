@@ -1,6 +1,7 @@
 exports.run = async (client, message, args) => {
     var util = require("../fivem");
     message.delete();
+	if (!message.member.hasPermission("ADMINISTRATOR")) return util.embed(`<@${message.author.id}>, Bunu Yapmaya Yetkin Yok.`);
     //////////////////////////////
     let base = notes[message.guild.id]
     if (!base) { return util.bad(`Make sure to save a log first, using \`${config.prefix}save-log <id>\`, where the \`id\` is someone's id on your server.`) }
