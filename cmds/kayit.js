@@ -1,7 +1,7 @@
 exports.run = async (client, message, args) => {
   var util = require("../fivem");
 
-	if (message.channel.id === '594814943224659978') return util.embed(`<@${message.author.id}>, Burası Kayıt Odası Değil.`);
+	if (!message.channel.id === '594814943224659978') return util.embed(`<@${message.author.id}>, Burası Kayıt Odası Değil.`);
     if (servers[message.guild.id].guild === message.guild.id) { 
         try {
         var arg = `${servers[message.guild.id].ip}`    
